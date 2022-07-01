@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shopping app with Next Js, typescript & Material UI
+An online Shopping App created using Next Js, typescript, Material UI & Redux.
 
-## Getting Started
+This Application uses Redux to store Cart details and its operations(add, delete & update Quantitys).
 
-First, run the development server:
+The Home page & Product details page data is fetched using getServerSideProps concept.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The Contact Page details is fetched using getStaticProps concept.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Home Page
+The data in the home page is fetched from FakeAPI using getServerSideProps
+![image](https://user-images.githubusercontent.com/36232014/176824436-431b8900-e933-4c58-ae45-27c241579580.png)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Product Details Page(dynamic)
+The data in the home page is fetched from FakeAPI using getServerSideProps
+The Product details can be fetched without interacting with the home page details.(can trigger the ['url'](http://localhost:3000/product/2) directly)
+![image](https://user-images.githubusercontent.com/36232014/176825052-5aa6bed0-acfb-4152-945a-e79c12db958f.png)
+added a button to show description based on users action.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Go to cart CTA is not shown when cart is empty
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![image](https://user-images.githubusercontent.com/36232014/176825332-59d1828d-28a4-460b-bae4-35fa4fd14df0.png)
+Go to Cart CTA is shown when cart is not empty
 
-## Learn More
+## Cart Page
+Initally added 2 products in the cart
+![image](https://user-images.githubusercontent.com/36232014/176825712-f89f8452-4a2a-4326-8d4a-0e960339f47e.png)
+You can add, remove or decrease quantity of the product.
 
-To learn more about Next.js, take a look at the following resources:
+Added a CTA to continue shopping or proceed to payment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Payment Page
+User will be navigated to this page after clicking on Payment CTA in Cart page
+![image](https://user-images.githubusercontent.com/36232014/176826207-1b8a88ba-0c1d-4a8c-8158-a2d7af87d202.png)
+This Page will just show success message and a button to navigate to Home page
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+When this page is triggered your cart will be empty.
 
-## Deploy on Vercel
+## Empty Cart
+![image](https://user-images.githubusercontent.com/36232014/176826467-929753f8-68be-4c0a-abd9-bb97b7edeb45.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 404 Error Page
+![image](https://user-images.githubusercontent.com/36232014/176826537-2cb9d256-fba3-4b7a-93ce-118b87fefa96.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact Page
+![image](https://user-images.githubusercontent.com/36232014/176827943-70e13355-0a15-4c0d-85b2-f6f9e5a40cc9.png)
+
+### Mobile View
+![image](https://user-images.githubusercontent.com/36232014/176827035-2245e3dd-5aa3-4d38-aa9e-93022f261829.png)
+
+![image](https://user-images.githubusercontent.com/36232014/176827059-73fd1e69-9bd0-4501-a532-113bc6539472.png)
+
+
