@@ -1,9 +1,11 @@
-import { Box, Card, CardContent, Container, Divider, Typography, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Button, Card, CardContent, Container, Divider, Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
+import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CartItem from '../components/CartItem'
 import HeadingWrap from '../components/HeadingWrap'
 import { RootState } from '../state/reducers'
+import { emptyCart } from '../state/reducers/cart/cartActions'
 import { CartProProps } from '../types/Cart.types'
 
 const Cart = () => {
@@ -11,6 +13,8 @@ const Cart = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [sum, setSum] = useState(0);
+  const router = useRouter();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let total = 0
@@ -20,6 +24,11 @@ const Cart = () => {
       setSum(total)
     }
   }, [cart])
+
+  const handleEmptyCart=()=>{
+    dispatch(emptyCart())
+    router.push('/success')
+  }
 
   return (
     <Container disableGutters={isMobile ? true : false} sx={{ marginTop: '8px', sm: { mx: '10px' } }}>
@@ -34,7 +43,14 @@ const Cart = () => {
               </Box>
             })}
           </CardContent>
-            <Box>Total = {sum}</Box>
+          <Stack direction='row' justifyContent='space-evenly' pb={2}>
+            <Box sx={{ fontSize: '24px', fontWeight: 'bold' }}>Total Amount</Box>
+            <Box sx={{ fontSize: '28px', fontWeight: 'bold', color: 'red' }}>= {sum}</Box>
+          </Stack>
+          <Stack direction='row' justifyContent='space-evenly' pb={2}>
+            <Button onClick={() => router.push("/")} variant='contained' sx={{ minWidth: '150px' }} >Home</Button>
+            <Button onClick={() => handleEmptyCart()} variant='contained' sx={{ minWidth: '150px' }}>Payment</Button>
+          </Stack>
         </Card>
       </> : <Box height='100vh' display='flex' justifyContent='center' alignItems='center'>
         <Typography variant='h5' component='h1'> Your Cart is Empty</Typography>

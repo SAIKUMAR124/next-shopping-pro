@@ -1,5 +1,5 @@
 import { ProductProps } from "../../../types/Product.types";
-import { ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_QTY } from "./cartActionTypes"
+import { ADD_ITEM_TO_CART, EMPTY_CART, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_QTY } from "./cartActionTypes"
 
 export const addItemToCart = (item: ProductProps) => {
     return {
@@ -16,10 +16,15 @@ export const removeItemQty = (id: number) => {
     }
 }
 
-export const removeItemFromCart=(id: number)=>{
+export const removeItemFromCart = (id: number) => {
     return {
         type: REMOVE_ITEM_FROM_CART,
         payload: id
     }
 }
 
+export const emptyCart = () => {
+    return {
+        type: EMPTY_CART
+    }
+}

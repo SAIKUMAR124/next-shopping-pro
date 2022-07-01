@@ -17,12 +17,12 @@ const CartItem = ({ item }: CartProProps | any) => {
 
   useEffect(() => {
     setTotal(price * qty)
-  }, [qty])
+  }, [qty, price])
 
   return (
     <Grid container p={1} rowSpacing={1} flexWrap='nowrap' alignItems='center' >
       <Grid item sx={{ paddingRight: '5px' }} minWidth='50px' >
-        <Image src={item.image} height="50px" width="50px" />
+        <Image src={item.image} height="50px" width="50px" alt={item.title} />
       </Grid>
       <Grid item sx={{ marginLeft: '5px' }}>
         <HeadingWrap>{item.title}</HeadingWrap>

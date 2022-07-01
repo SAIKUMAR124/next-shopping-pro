@@ -1,6 +1,6 @@
 import { CartProProps } from "../../../types/Cart.types";
 import { ProductProps } from "../../../types/Product.types";
-import { ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_QTY } from "./cartActionTypes";
+import { ADD_ITEM_TO_CART, EMPTY_CART, REMOVE_ITEM_FROM_CART, REMOVE_ITEM_QTY } from "./cartActionTypes";
 
 interface StateProps {
     cart: CartProProps[] | never[];
@@ -60,6 +60,12 @@ export const CartReducer = (
             return {
                 ...state,
                 cart: state.cart.filter(item => item.id !== action.payload)
+            }
+
+        case EMPTY_CART: 
+            return {
+                ...state,
+                cart: []
             }
 
         default: return state;
