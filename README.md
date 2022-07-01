@@ -3,9 +3,7 @@ An online Shopping App created using Next Js, typescript, Material UI & Redux.
 
 This Application uses Redux to store Cart details and its operations(add, delete & update Quantitys).
 
-The Home page & Product details page data is fetched using getServerSideProps concept.
-
-The Contact Page details is fetched using getStaticProps concept.
+The Home page, Contact Page & Product details page data is fetched using getServerSideProps concept.
 
 ## Home Page
 The data in the home page is fetched from FakeAPI using getServerSideProps
