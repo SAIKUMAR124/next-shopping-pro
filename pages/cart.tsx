@@ -1,9 +1,9 @@
 import { Box, Button, Card, CardContent, Container, Divider, Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
-import { useRouter } from 'next/router'
+import { NextRouter, useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Dispatch } from 'redux'
 import CartItem from '../components/CartItem'
-import HeadingWrap from '../components/HeadingWrap'
 import { RootState } from '../state/reducers'
 import { emptyCart } from '../state/reducers/cart/cartActions'
 import { CartProProps } from '../types/Cart.types'
@@ -11,21 +11,21 @@ import { CartProProps } from '../types/Cart.types'
 const Cart = () => {
   const cart: CartProProps[] | [] = useSelector((state: RootState) => state.cartProducts.cart)
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile: boolean = useMediaQuery(theme.breakpoints.down('sm'));
   const [sum, setSum] = useState(0);
-  const router = useRouter();
-  const dispatch = useDispatch();
+  const router: NextRouter = useRouter();
+  const dispatch: Dispatch<any> = useDispatch();
 
   useEffect(() => {
     let total = 0
     for (const item of cart) {
       const productTotal = item.price * item.qty;
       total = total + productTotal
-      setSum(total)
     }
+    setSum(total)
   }, [cart])
 
-  const handleEmptyCart=()=>{
+  const handleEmptyCart = () => {
     dispatch(emptyCart())
     router.push('/success')
   }
@@ -45,7 +45,7 @@ const Cart = () => {
           </CardContent>
           <Stack direction='row' justifyContent='space-evenly' pb={2}>
             <Box sx={{ fontSize: '24px', fontWeight: 'bold' }}>Total Amount</Box>
-            <Box sx={{ fontSize: '28px', fontWeight: 'bold', color: 'red' }}>= {sum}</Box>
+            <Box sx={{ fontSize: '28px', fontWeight: 'bold', color: 'red' }}>= {(Math.round(sum * 100) / 100).toFixed(2)}</Box>
           </Stack>
           <Stack direction='row' justifyContent='space-evenly' pb={2}>
             <Button onClick={() => router.push("/")} variant='contained' sx={{ minWidth: '150px' }} >Home</Button>

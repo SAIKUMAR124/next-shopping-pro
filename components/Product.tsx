@@ -6,14 +6,14 @@ import { ProductProps } from '../types/Product.types'
 
 const Product = ({ product }: ProductProps | any) => {
   const router: NextRouter = useRouter()
- 
 
-  const handleCardClick = (id:number) => {
+
+  const handleCardClick = (id: number) => {
     router.push(`/product/${id}`)
   }
-  
+
   return (
-    <Box component='div' onClick={()=>handleCardClick(product.id)} >
+    <Box component='div' onClick={() => handleCardClick(product.id)} >
       <Card component='div' sx={{
         borderRadius: '8px',
         boxShadow: 3,

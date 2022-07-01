@@ -27,7 +27,7 @@ const CartItem = ({ item }: CartProProps | any) => {
       <Grid item sx={{ marginLeft: '5px' }}>
         <HeadingWrap>{item.title}</HeadingWrap>
         <Box >
-          <Typography variant='body1' component='span' bgcolor='#9c27b0' p={0.3} color='white' sx={{ fontSize: '8px',  borderRadius: '4px', width: '120px' }}>{item.category}</Typography>
+          <Typography variant='body1' component='span' bgcolor='#9c27b0' p={0.3} color='white' sx={{ fontSize: '8px', borderRadius: '4px', width: '120px' }}>{item.category}</Typography>
           <Grid container
             direction="row"
             justifyContent="flex-start"

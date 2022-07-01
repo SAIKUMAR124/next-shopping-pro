@@ -11,7 +11,7 @@ const Header = () => {
     const router: NextRouter = useRouter();
     const theme: Theme = useTheme();
     const isMobile: boolean = useMediaQuery(theme.breakpoints.down("sm"));
-    const cart: ProductProps[] | [] = useSelector((state: RootState)=>state.cartProducts.cart)
+    const cart: ProductProps[] | [] = useSelector((state: RootState) => state.cartProducts.cart)
 
     const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
