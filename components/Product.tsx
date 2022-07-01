@@ -25,7 +25,7 @@ const Product = ({ product }: ProductProps | any) => {
           <Image src={product.image} height="150px" width="100%" alt={product.title} />
         </Box>
         <CardContent sx={{ bgcolor: '#daf5f5' }}>
-          <Typography variant='h6' component='h1' sx={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '8px' }} >{product.title}</Typography>
+          <Typography variant='h6' component='h1' sx={{ fontSize: '16px', fontWeight: 'bold', marginBottom: '8px' }} noWrap>{product.title}</Typography>
           <Box display='flex' >
             <Typography sx={{ display: 'flex', alignItems: 'center' }} width='50%'><Box component='span' sx={{ fontSize: '12px' }}>Price:</Box>
               <Typography component='span' sx={{
