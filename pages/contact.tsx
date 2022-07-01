@@ -1,15 +1,17 @@
-import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material'
+import { Box, Card, CardContent, Container, Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
-import React from 'react'
 
 const contact = ({ contactDetails }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const theme = useTheme();
+  const isMobile: boolean = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Container sx={{ minHeight: "90vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Container disableGutters={isMobile ? true : false} sx={{ minHeight: "90vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Card>
         <CardContent>
           <Typography variant="h4" component='h1'>Contact Details</Typography>
-          <Grid container gap={2}>
+          <Grid container gap={2} sx={{minWidth:"420px"}}>
             <Grid item>
               <Box>Name</Box>
               <Box>Email</Box>
