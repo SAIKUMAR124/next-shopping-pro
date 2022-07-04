@@ -65,6 +65,7 @@ const Header = () => {
                                 >
                                     <MenuItem onClick={() => handleMenuClick('/')} >Home</MenuItem>
                                     <MenuItem onClick={() => handleMenuClick('/contact')} >Contact</MenuItem>
+                                    <MenuItem onClick={() => handleMenuClick('/posts')} >Posts</MenuItem>
                                     <Divider />
                                     <Badge badgeContent={cart.length} color='secondary'>
                                         <MenuItem onClick={() => handleMenuClick('/cart')}  >Cart</MenuItem>
@@ -75,6 +76,7 @@ const Header = () => {
                                 <Box sx={{ color: 'white' }}>
                                     <Button color='inherit' onClick={() => handleMenuClick('/')}>Home</Button>
                                     <Button color='inherit' onClick={() => handleMenuClick('/contact')}>Contact</Button>
+                                    <Button color='inherit' onClick={() => handleMenuClick('/posts')}>Posts</Button>
                                     <Badge badgeContent={cart.length} color='secondary'>
                                         <Button sx={{ color: 'white' }} onClick={() => handleMenuClick('/cart')}>Cart</Button>
                                     </Badge>
