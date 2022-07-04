@@ -1,4 +1,5 @@
 import { Box, Button, Card, CardContent, Container, Divider, Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
+import Head from 'next/head'
 import { NextRouter, useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -32,6 +33,9 @@ const Cart = () => {
 
   return (
     <Container disableGutters={isMobile ? true : false} sx={{ marginTop: '8px', sm: { mx: '10px' } }}>
+      <Head>
+        <title>Cart</title>
+      </Head>
       {cart.length > 0 ? <>
         <Typography variant='h5' component='h1'>Your Cart</Typography>
         <Card sx={{ maxWidth: "sm", margin: '0 auto' }}>

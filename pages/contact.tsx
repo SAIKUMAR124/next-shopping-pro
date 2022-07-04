@@ -1,11 +1,15 @@
 import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 
 const contact = ({ contactDetails }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
   return (
     <Container sx={{ minHeight: "90vh", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Head>
+        <title>Contact Page</title>
+      </Head>
       <Card>
         <CardContent>
           <Typography variant="h4" component='h1'>Contact Details</Typography>

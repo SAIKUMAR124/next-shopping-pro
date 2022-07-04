@@ -1,5 +1,6 @@
 import { Box, Button, Container } from '@mui/material'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 import ProductDetails from '../../components/ProductDetails'
@@ -9,6 +10,9 @@ const ProductPage = ({ product }: InferGetServerSidePropsType<typeof getServerSi
     return (
 
         <Box component='main' minHeight='100vh' paddingTop='20px'>
+            <Head>
+                <title>Product page of {product.id}</title>
+            </Head>
             <Container>
                 <Button variant='contained' sx={{ marginBottom: '12px' }}><Link href='/'><a>Back Home</a></Link></Button>
                 <Container maxWidth='sm' >
